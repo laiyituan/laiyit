@@ -10,7 +10,6 @@ body {
       "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,
       Arial, "Lucida Grande", sans-serif;
   font-weight: 100;
-  flex-direction: column;
 }
 h1 {
   font-size: 64px;
@@ -36,30 +35,103 @@ a:hover {
   color: #DADADA;
   text-decoration: none;
 }
+/* ReactNative 默认值 */
+body, div, span {
+box-sizing: border-box;
+
+/******************/
+position: relative;
+/******************/
+
+display: flex;
+flex-direction: column;
+align-items: stretch;
+flex-shrink: 0;
+align-content: flex-start;
+
+border: 0 solid black;
+margin: 0;
+padding: 0;
+}
 .section {
-  display: flex;
-  border-bottom: 1px dashed #fff;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 }
+#native{
+  background-image: url(../img/assets/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#native .nav{
+  flex-direction: row;
+  z-index: 2;
+}
+#native h1,.react-logo{
+  position: relative;
+  z-index: 2;
+}
 #native .nav a{
   padding: 10px 20px;
 }
+.overlay {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0,0,0,0),rgba(31,30,52,1));
+}
 #touch,#async{
   flex-direction: row;
+  align-content: center;
+  align-items: center;
 }
 #touch div,#async div{
   flex-basis: 0;
   flex-grow: 1;
-  align-self: stretch;
+  align-content: center;
 }
-.iphone-demo {
-  background-color: red;
+.iphone-demo{
+  align-items: center;
+}
+.feature-description {
+  align-items: flex-start;
+}
+.img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#flex{
+  overflow: hidden;
+}
+#android-robot{
+  transform: rotate(-45deg);
+  position: absolute;
+  bottom: -108px;
+  right: -90px;
+}
+#slider-control {
+  padding: 3px;
+  position: fixed;
+  top: 45%;
+  right: 80px;
 }
 
-.feature-description {
-  background-color: rgba(0,255,0,0.3);
+#slider-control a {
+  padding: 3px;
+}
+
+#slider-control .dot {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+
+#slider-control .active .dot {
+  background-color: #fff;
 }
