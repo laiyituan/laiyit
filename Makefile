@@ -1,3 +1,4 @@
+# Makefile
 .PHONY: css
 css:
 	mkdir -p bundle
@@ -10,7 +11,7 @@ server:
 .PHONY: clean
 clean:
 	rm -r bundle
-	
+
 .PHONY: all
 all:
-	make server & make css & wait
+	make server & make css

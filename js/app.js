@@ -1,16 +1,19 @@
 function animateLogo(){
 	// `#box` 元素进行 2 秒的动画
-	TweenMax.from(".react-logo",2,{
+	TweenMax.fromTo(".react-logo",2,{
 		css: {
-			// 在同时更改多个 CSS 属性
-			y: "-200px",
-			opacity: 0,
-		},
+      y: "50px",
+    }
+  },{
+    // to
+    css: {
+      y: "-50px",
+    },
 		 // 永久重复动画的选项
-    // repeat: -1,
+    repeat: -1,
 
     // 反转、重新运行动画的选项
-    // yoyo: true,
+    yoyo: true,
 
     // 改变 easing 类型
     ease: animateLogo.easeInOut,
@@ -56,19 +59,13 @@ function scrollToElement(element) {
 }
 
 function addSmoothScrolling() {
-  var links = document.querySelectorAll("#slider-control a")
-
+  var links = document.querySelectorAll("#slider-control a");  
   for(var i = 0; i < links.length; i++) {
     var link = links[i];
-
-    link.addEventListener("click",function(event) {
-      // `event` 是鼠标点击事件
-			event.defaultPrevented;
-      // event.preventDefault();
-      // BUG 警告！使用闭包或者 ES6 `let` 修复。
-      var href = document.querySelector(event.currentTarget.getAttribute('href'));
-console.log(href);
-      scrollToElement(href);
+    link.addEventListener("click",function(e){
+            e.preventDefault();
+            var href = document.querySelector(event.currentTarget.getAttribute('href'))
+            scrollToElement(href);
     });
   }
 }
